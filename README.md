@@ -1,1 +1,1 @@
-# chess-python-project
+python project for chess
