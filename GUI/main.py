@@ -12,7 +12,7 @@ class Main:
         pygame.init()
         self.moves = decode(moves_list)
         self.move = 0
-        self.screen=pygame.display.set_mode((1000,800))
+        self.screen=pygame.display.set_mode((1000,700))
         pygame.display.set_caption('Chess')
         # Create a new 'Game' object to represent the chess game.
         self.game=Game()
