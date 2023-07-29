@@ -4,7 +4,7 @@ from const import *
 from piece import *
 # Define the 'Board' class to represent the chessboard and initialize it.
 class Board:
-    def __init__(self) -> None:
+    def __init__(self,pos:list = None) -> None:
          #adding a list of 8 zeros to each column
          self.squares=[[0,0,0,0,0,0,0,0]for col in range(cols)] 
          # Call the '_create()' method to populate the grid with 'Square' objects.
@@ -45,8 +45,39 @@ class Board:
        self.squares[row_other][4]=Square(row_other,4,King(color))
 
     def move_piece(self,move_list):
+
+        #Black - King Side Castling
         sq1c,sq1r,sq2c,sq2r = move_list[0],move_list[1],move_list[2],move_list[3]
+        if move_list == [4,0,6,0]:
+            if self.squares[0][4].piece.name == "king":
+                self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
+                self.squares[0][5].piece , self.squares[0][7].piece = self.squares[0][7].piece , None
+                return
+            
+        #Black- Queen Side Castling
+        if move_list == [4,0,2,0]:
+            if self.squares[0][4].piece.name == "king":
+                self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
+                self.squares[0][2].piece , self.squares[0][4].piece = self.squares[0][4].piece , None
+                return
+            
+        #White-King Side Castling
+        if move_list == [4,7,6,7]:
+            if self.squares[7][4].piece.name == "king":
+                    self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
+                    self.squares[7][5].piece , self.squares[7][7].piece = self.squares[7][5].piece , None
+                    return
+        
+        #White-Queen Side Castling
+        if move_list == [4,7,2,7]:
+            if self.squares[7][4].piece.name == "king":
+                    self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
+                    self.squares[7][3].piece , self.squares[7][0].piece = self.squares[7][0].piece , None
+                    return
+
+        #Moves that aren't as Castling
         self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
+        
 
 
 

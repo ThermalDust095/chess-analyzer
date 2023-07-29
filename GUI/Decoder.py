@@ -3,12 +3,19 @@ def decode(moves_list):
     moves = []
     for move in moves_list:
         a = []
+
         for i in move:
             if i in chess_notation:
                 a.append(chess_notation[i])
             else:
                 a.append(8 - int(i))
 
+        
         moves.append(a)
+    
     return moves
+
+
+if __name__ == "__main__":
+    decode(["e1c1"])
 
