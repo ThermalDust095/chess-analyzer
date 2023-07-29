@@ -41,3 +41,4 @@ class Game:
                   # Specifically, in the Pygame library, the blit function is used to copy the contents of 
                   # one surface (e.g., an image) onto another surface (e.g., the game window's surface).
                   surface.blit(img,piece.texture_rect)
+    

@@ -3,9 +3,9 @@ import pprint
 import requests
 
 printer = pprint.PrettyPrinter()
-username = input("Enter username:")
 def print_leaderboards():
 	data = get_leaderboards().json
+	print(data)
 	categories = data.keys()
 
 	for category in categories:
@@ -19,9 +19,9 @@ def get_player_rating(username):
 	categories = ['chess_blitz', 'chess_rapid', 'chess_bullet']
 	for category in categories:
 		print('Category:', category)
-		print(f'Current: {data[category]["last"]["rating"]}')
-		print(f'Best: {data[category]["best"]["rating"]}')
-		print(f'Best: {data[category]["record"]}')
+		print(f'Current: {data["stats"][category]["last"]["rating"]}')
+		print(f'Best: {data["stats"][category]["best"]["rating"]}')
+		print(f'Best: {data["stats"][category]["record"]}')
 
 def get_most_recent_game(username):
 	data = get_player_game_archives(username).json
@@ -30,4 +30,8 @@ def get_most_recent_game(username):
 	game = games['games'][-1]
 	printer.pprint(game)
 
-get_most_recent_game('charles710')
+
+if __name__ == "__main__":
+	username = input("Enter username:")
+	get_player_rating(username)
+	get_most_recent_game(username)

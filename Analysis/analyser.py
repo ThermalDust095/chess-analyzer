@@ -54,6 +54,10 @@ class Move:
 a = 'hi'
 
 if __name__ == "__main__":
-    path = sys.argv[1]
-    a = PGN_analyzer(path=path)
-    a.analyze_all_moves()
+    # path = sys.argv[1]
+    # a = PGN_analyzer(path=path)
+    # a.analyze_all_moves()
+
+    a = PGN_analyzer()
+    print(a.moves_list)
+
