@@ -1,15 +1,24 @@
-[Event "?"]
-[Site "?"]
-[Date "????.??.??"]
-[Round "?"]
-[White "?"]
-[Black "?"]
-[Result "1-0"]
+[Event "Live Chess"]
+[Site "Chess.com"]
+[Date "2023.07.28"]
+[Round "-"]
+[White "ThermalDust095"]
+[Black "Aum17178"]
+[Result "0-1"]
+[CurrentPosition "1q6/5pKR/4k3/6P1/4b3/8/P1P5/8 w - -"]
+[Timezone "UTC"]
+[ECO "B06"]
+[ECOUrl "https://www.chess.com/openings/Modern-Defense-with-1-e4-2.Bc4"]
+[UTCDate "2023.07.28"]
+[UTCTime "06:25:35"]
+[WhiteElo "564"]
+[BlackElo "585"]
+[TimeControl "180"]
+[Termination "Aum17178 won on time"]
+[StartTime "06:25:35"]
+[EndDate "2023.07.28"]
+[EndTime "06:31:06"]
+[Link "https://www.chess.com/game/live/84264563617"]
 
-1. d4 {This reminds me of a game I played against Arik Armstead in BlitzChamps.}
-1... Nc6 2. f4 Nf6 3. e3 d5 4. g3 Bg4 5. Be2 Bxe2 {I played in Arizona for 17
-years. You think I can’t handle the heat $2} 6. Qxe2 Ne4 7. Qf3 Nb4 8. c3 Nc2+
-{You’ve been watching film $1} 9. Ke2 Nxa1 10. Kf1 e6 11. Qd1 Bd6 12. Nh3 O-O 13.
-Kg2 h6 14. Qf1 b6 15. Qe2 c5 16. b3 cxd4 17. exd4 Nf6 18. Bb2 Nxb3 19. axb3 a5
-20. Nf2 a4 21. b4 a3 22. Nxa3 Ne4 23. Nxe4 dxe4 24. Qxe4 Qg5 25. fxg5 {Great
-move $1} 25... hxg5 1-0
+1. e4 {[%clk 0:03:00]} 1... g6 {[%clk 0:02:59.8]} 2. Bc4 {[%clk 0:02:59.1]} 2... e5 {[%clk 0:02:58.8]} 3. Nf3 {[%clk 0:02:58.2]} 3... Nc6 {[%clk 0:02:57.2]} 4. O-O {[%clk 0:02:57]} 4... d5 {[%clk 0:02:56.4]} 5. Bxd5 {[%clk 0:02:55.1]} 5... Nd4 {[%clk 0:02:53.4]} 6. Nxe5 {[%clk 0:02:50]} 6... Be6 {[%clk 0:02:48.5]} 7. Bxb7 {[%clk 0:02:45.4]} 7... Rb8 {[%clk 0:02:40.1]} 8. Bc6+ {[%clk 0:02:42.8]} 8... Nxc6 {[%clk 0:02:36.7]} 9. Nxc6 {[%clk 0:02:41]} 9... Qd6 {[%clk 0:02:32.3]} 10. Nxb8 {[%clk 0:02:39.2]} 10... Be7 {[%clk 0:02:31.7]} 11. Re1 {[%clk 0:02:35.3]} 11... Nf6 {[%clk 0:02:30.6]} 12. e5 {[%clk 0:02:34.2]} 12... Qb6 {[%clk 0:02:25.4]} 13. exf6 {[%clk 0:02:30.7]} 13... Bxf6 {[%clk 0:02:24.7]} 14. Nc3 {[%clk 0:02:24.8]} 14... Bh4 {[%clk 0:02:22.5]} 15. g3 {[%clk 0:02:18.7]} 15... Bf6 {[%clk 0:02:18.2]} 16. d4 {[%clk 0:02:13.9]} 16... Bxd4 {[%clk 0:02:14.7]} 17. Be3 {[%clk 0:02:07.8]} 17... Bxe3 {[%clk 0:02:11]} 18. Rxe3 {[%clk 0:02:06.2]} 18... Qxb8 {[%clk 0:02:08.8]} 19. Rd3 {[%clk 0:01:56.7]} 19... Qxb2 {[%clk 0:02:05.9]} 20. Rd8+ {[%clk 0:01:50.9]} 20... Ke7 {[%clk 0:02:02.3]} 21. Rxh8 {[%clk 0:01:47.5]} 21... Qxc3 {[%clk 0:02:01.6]} 22. Rxh7 {[%clk 0:01:45.5]} 22... Qe5 {[%clk 0:01:53.1]} 23. Qf3 {[%clk 0:01:28.6]} 23... Bd5 {[%clk 0:01:48]} 24. Qa3+ {[%clk 0:01:22.3]} 24... Ke6 {[%clk 0:01:45.5]} 25. f3 {[%clk 0:00:50.8]} 25... Qxa1+ {[%clk 0:01:42.6]} 26. Kg2 {[%clk 0:00:49]} 26... Qd1 {[%clk 0:01:35]} 27. Qxa7 {[%clk 0:00:45]} 27... Qxf3+ {[%clk 0:01:32]} 28. Kh3 {[%clk 0:00:43.7]} 28... Qf5+ {[%clk 0:01:29.7]} 29. g4 {[%clk 0:00:42]} 29... Qf3+ {[%clk 0:01:25.1]} 30. Kh4 {[%clk 0:00:40.2]} 30... Qf6+ {[%clk 0:01:20.3]} 31. g5 {[%clk 0:00:37.6]} 31... Qf4+ {[%clk 0:01:18.7]} 32. Kh3 {[%clk 0:00:36.5]} 32... Qxg5 {[%clk 0:01:15]} 33. Qxc7 {[%clk 0:00:33.7]} 33... Qf5+ {[%clk 0:01:12.9]} 34. Kg3 {[%clk 0:00:31.5]} 34... g5 {[%clk 0:01:11.7]} 35. h4 {[%clk 0:00:22.3]} 35... Qf4+ {[%clk 0:01:08.1]} 36. Kh3 {[%clk 0:00:19.6]} 36... Qxc7 {[%clk 0:01:06]} 37. hxg5 {[%clk 0:00:12.7]} 37... Qc3+ {[%clk 0:01:03.7]} 38. Kh4 {[%clk 0:00:10.9]} 38... Qd2 {[%clk 0:01:00.5]} 39. Kh5 {[%clk 0:00:08.7]} 39... Qe2+ {[%clk 0:00:58.8]} 40. Kh6 {[%clk 0:00:07.3]} 40... Qh2+ {[%clk 0:00:57.2]} 41. Kg7 {[%clk 0:00:05.2]} 41... Qe5+ {[%clk 0:00:56.1]} 42. Kg8 {[%clk 0:00:02.7]} 42... Qb8+ {[%clk 0:00:54]} 43. Kg7 {[%clk 0:00:01.2]} 43... Be4 {[%clk 0:00:50.9]} 0-1
+

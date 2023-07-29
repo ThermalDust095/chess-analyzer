@@ -58,6 +58,6 @@ if __name__ == "__main__":
     # a = PGN_analyzer(path=path)
     # a.analyze_all_moves()
 
-    a = PGN_analyzer()
+    a = PGN_analyzer("game.pgn")
     print(a.moves_list)
 

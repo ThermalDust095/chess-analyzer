@@ -1,11 +1,16 @@
 import pygame
 import sys
-from const import *
 from pygame.locals import *
-from game import Game
+from game import *
+from const import *
+
+sys.path.insert(0,r"C:\Users\akhil\OneDrive - dsatm.edu.in\Documents\Akhil\Python\chess-python-project\chess-python-project\Analysis")
+
+from analyser import *
 from Decoder import decode
 
-moves_list = ['e2e4', 'e7e5', 'd2d4', 'g8f6', 'd1g4', 'f6g4', 'c1e3', 'd7d5', 'b1c3', 'd5e4', 'e1c1', 'g4e3']
+PGN = PGN_analyzer("games.pgn")
+moves_list = PGN.moves_list
 
 class Main:
     def __init__(self) -> None:
@@ -37,7 +42,6 @@ class Main:
                     if event.key == K_RIGHT:
                         if self.move != len(self.moves)-1 :
                             self.move += 1
-                            print(event.key)
                             self.game.board.move_piece(self.moves[self.move])
 
             # Update the display to show any changes.

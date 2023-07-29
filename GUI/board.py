@@ -58,14 +58,14 @@ class Board:
         if move_list == [4,0,2,0]:
             if self.squares[0][4].piece.name == "king":
                 self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
-                self.squares[0][2].piece , self.squares[0][4].piece = self.squares[0][4].piece , None
+                self.squares[0][3].piece , self.squares[0][0].piece = self.squares[0][0].piece , None
                 return
             
         #White-King Side Castling
         if move_list == [4,7,6,7]:
             if self.squares[7][4].piece.name == "king":
                     self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
-                    self.squares[7][5].piece , self.squares[7][7].piece = self.squares[7][5].piece , None
+                    self.squares[7][5].piece , self.squares[7][7].piece = self.squares[7][7].piece , None
                     return
         
         #White-Queen Side Castling
