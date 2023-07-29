@@ -43,7 +43,10 @@ class Board:
        
        #King
        self.squares[row_other][4]=Square(row_other,4,King(color))
-      
+
+    def move_piece(self,move_list):
+        sq1c,sq1r,sq2c,sq2r = move_list[0],move_list[1],move_list[2],move_list[3]
+        self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
 
 
 
