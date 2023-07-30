@@ -36,26 +36,38 @@ class Main:
         self.username = Label(f"{username}   ||   Best Rating: {self.Rating}",bigText,(40,35),(0,0,0))
         self.instru1 = Label("'Right Arrow Key' for Next Move & 'R' key for Refresh",mediumText, (70,720) ,(0,0,0))
         self.your_move = Button((750,100),(500,200),mediumText,green,white)
+        self.graph = Graph()
 
     #trivial functions
     def check_move(self,moves_list,move,result):
         if move == -1:
             self.original_move = "Start"
-            self.best_move_one,self.best_move_two,self.best_move_three,self.advantage = "","","",""
+            self.best_move_one,self.best_move_two,self.best_move_three,self.advantage,self.move_name = "","","","",""
             
         if move != -1:
             self.original_move =  f"Original Move:   {moves_list[move]}"
             self.advantage = f"Advantage: {result[moves_list[move]]['eval']['value']}"
 
-            self.best_move_one = f"Best Move: {result[moves_list[move]]['top_moves'][0]['Move']}     ||     Advantage: {result[moves_list[move]]['top_moves'][0]['Centipawn']}"
-            self.best_move_two = f"Best Move: {result[moves_list[move]]['top_moves'][1]['Move']}      ||     Advantage: {result[moves_list[move]]['top_moves'][1]['Centipawn']}"
-            self.best_move_three = f"Best Move: {result[moves_list[move]]['top_moves'][2]['Move']}     ||     Advantage: {result[moves_list[move]]['top_moves'][2]['Centipawn']}"
+            try:
+                self.best_move_one = f"Best Move: {result[moves_list[move]]['top_moves'][0]['Move']}     ||     Advantage: {result[moves_list[move]]['top_moves'][0]['Centipawn']}"
+                self.best_move_two = f"Best Move: {result[moves_list[move]]['top_moves'][1]['Move']}      ||     Advantage: {result[moves_list[move]]['top_moves'][1]['Centipawn']}"
+
+            except:
+                self.best_move_one,self.best_move_two,self.best_move_three,self.advantage,self.move_name = "","","","",""
+
+            if move%2 == 0:
+                self.move_name = f"Move{move//2 + 1} (White)"
+            
+            if move%2 == 1:
+                self.move_name = f"Move{move//2 + 1} (Black)"
 
 
-    def mainloop(self,result):
+    def mainloop(self,result,adv):
         self.check_move(self.moves_list,self.move,result)
         game=self.game
         screen=self.screen
+
+        plot_surface = self.graph.draw_graph(adv[:0])
         while True:
             # Show the background of the chessboard.
             screen.fill((255,255,255))
@@ -75,28 +87,34 @@ class Main:
                             self.move += 1
                             self.game.board.move_piece(self.moves[self.move])
                             self.check_move(self.moves_list,self.move,result)
+                            plot_surface = self.graph.draw_graph(adv[:self.move+1])
+                            
 
                     if event.key == K_r:
                         self.move = -1
                         self.game.board.set_original_state()
                         self.check_move(self.moves_list,self.move,result)
+                        plot_surface = self.graph.draw_graph(adv[:0])
 
-            
-            self.your_move.draw_render(screen,self.original_move)
+            move_name = Label(self.move_name,pygame.font.Font(None, 48),(760,50),(0,0,0))
             advantage = Label(self.advantage,pygame.font.Font(None, 32),(1000,110),(0,0,0))
             best_moves = Label(f"Best Moves ",pygame.font.Font(None, 32),(900,160),(0,0,0))
             best_move_one = Label(self.best_move_one,pygame.font.Font(None, 32),(760,200),(0,0,0))
             best_move_two = Label(self.best_move_two,pygame.font.Font(None, 32),(760,230),(0,0,0))
-            best_move_three = Label(self.best_move_three,pygame.font.Font(None, 32),(760,260),(0,0,0))
 
             #Rendering Objects
+            move_name.draw_render(screen)
+            self.your_move.draw_render(screen,self.original_move)
             self.username.draw_render(screen)
             self.instru1.draw_render(screen)
             best_moves.draw_render(screen)
             best_move_one.draw_render(screen)
             advantage.draw_render(screen)
             best_move_two.draw_render(screen)
-            best_move_three.draw_render(screen)
+
+
+            screen.blit(plot_surface, (670, 260))
+
             # Update the display to show any changes.
             pygame.display.update()
 
@@ -105,9 +123,10 @@ class Main:
 
 
 # Main
-PGN = PGN_analyzer("game.pgn")
+PGN = PGN_analyzer("games.pgn")
 moves_list = PGN.moves_list
 result = PGN.analyze_all_moves()
+adv = PGN.adv
 
 main=Main("ThermalDust095",974,moves_list)
-main.mainloop(result)
+main.mainloop(result,adv)

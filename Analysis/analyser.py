@@ -9,6 +9,7 @@ stockfish = Stockfish(path="stockfish",depth=18,parameters={"Threads":6})
 class PGN_analyzer:
     def __init__(self,path="games.pgn"):
         self.moves_list = self.pgn_to_moves(path)
+        self.adv = []
 
     def pgn_to_moves(self,pgn_file_path):
         moves_list = []
@@ -40,10 +41,11 @@ class PGN_analyzer:
         res = {}
         stockfish.set_position(moves)
         for idx,move in enumerate(self.moves_list):
-            a ={"top_moves":stockfish.get_top_moves(3)}
+            a ={"top_moves":stockfish.get_top_moves(2)}
             moves.append(move)
             stockfish.set_position(moves)
             a["eval"] = stockfish.get_evaluation()
+            self.adv.append(a["eval"]["value"])
             res[move] = a 
             
             if idx % 2 == 0:
@@ -73,4 +75,5 @@ if __name__ == "__main__":
     a = PGN_analyzer("game.pgn")
     a.analyze_all_moves()
     print(a.res)
+    print(a.adv)
 

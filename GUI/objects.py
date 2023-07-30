@@ -1,5 +1,8 @@
 import pygame
+import matplotlib.pyplot as plt
 from pygame.locals import *
+import numpy as np
+import io
 
 class InputBox:
     def __init__(self,size,pos):
@@ -68,4 +71,52 @@ class Label:
     def draw_render(self,screen):
         self.text_surface = self.font.render(self.text, True, self.color)
         screen.blit(self.text_surface, self.pos)
+
+
+class Graph:
+    def get_alternating_color(self,index):
+        if index % 2 == 0:
+            return 'w'
+        else:
+            return 'b'
+    
+    def draw_graph(self,data_points):
+        self.data_point = data_points
+        plt.clf()
+        background_color = (234/255, 235/255, 200/255, 1)
+        scale_factor = 30
+        # Set the positions of the bars
+        positions = np.arange(len(data_points))
+        # Set the colors for positive and negative bars
+        colors = ['white' if value >= 0 else 'black' for value in data_points]
+        # Create the figure and axis for the graph
+        fig, ax = plt.subplots(figsize=(6.67, 5))
+        # Draw the bars
+        ax.bar(positions, data_points, color=colors)
+
+        # Set the x-axis labels
+        x_labels = ['M{}({})'.format(i // 2 + 1, self.get_alternating_color(i)) for i in range(len(data_points))]
+        ax.set_xticks(positions)
+        ax.set_xticklabels(x_labels, rotation=45 ,ha='right')
+        # Set the y-axis label
+        ax.set_ylabel('Centipawn')
+        # Set the title
+        ax.set_title('Advantage')
+        # Set the background color of the plot area to match the window background
+        ax.set_facecolor(background_color)
+        # Save the plot to an in-memory buffer
+        buffer = io.BytesIO()
+        plt.savefig(buffer, format='png')
+        buffer.seek(0)
+        # Convert the buffer to a Pygame surface
+        plot_surface = pygame.image.load(buffer)
+
+        # Close the Matplotlib plot to free up resources
+        plt.close()
+
+        return plot_surface
+
+        
+
+
 
