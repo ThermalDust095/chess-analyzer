@@ -4,9 +4,11 @@ from const import *
 from board import Board
 # Define the 'Game' class to represent the chess game.
 class Game:
-    def __init__(self) -> None:
+    def __init__(self,top,left) -> None:
         # Create a new 'Board' object to represent the chessboard.
         self.board=Board()
+        self.top = top
+        self.left = left
         # Method to display the background of the chessboard on the given surface.
     def show_bg(self,surface):
         for row in range(rows):
@@ -18,7 +20,8 @@ class Game:
                     #dark green
                     color=(119,154,88)
                 # Calculate the rectangle position and size for the current square. 
-                rect=(col*sqsize,row*sqsize,sqsize,sqsize)
+                rect=(col*sqsize+self.left,row*sqsize+self.top,sqsize,sqsize)
+
                 # Draw the square on the surface with the specified color.
                 pygame.draw.rect(surface,color,rect)
     
@@ -32,7 +35,7 @@ class Game:
                   #taking an image
                   img=pygame.image.load(piece.texture)
                   # Calculate the center position of the square.
-                  img_center=col * sqsize + sqsize // 2, row * sqsize+ sqsize // 2
+                  img_center=col * sqsize + sqsize // 2 + self.left, row * sqsize+ sqsize // 2 + self.top
                   # Get the rectangle that will center the image on the square.
                   piece.texture_rect=img.get_rect(center=img_center)
                   # Blit the image onto the surface at the specified 'texture_rect' position.

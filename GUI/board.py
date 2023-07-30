@@ -10,7 +10,7 @@ class Board:
          # Call the '_create()' method to populate the grid with 'Square' objects.
          self._create()
           # Add chess pieces to the board for both 'white' and 'black' players.
-         self._add_pieces('white')
+         self._add_pieces('white') 
          self._add_pieces('black')
 
     #_before method represent that the method is private
@@ -77,8 +77,12 @@ class Board:
 
         #Moves that aren't as Castling
         self.squares[sq2r][sq2c].piece , self.squares[sq1r][sq1c].piece = self.squares[sq1r][sq1c].piece , None
-        
-
+    #To Set Original State of the Board
+    def set_original_state(self):
+        self.squares=[[0,0,0,0,0,0,0,0]for col in range(cols)]
+        self._create()
+        self._add_pieces('white') 
+        self._add_pieces('black')
 
 
 

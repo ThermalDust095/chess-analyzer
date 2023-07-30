@@ -1,8 +1,10 @@
 from stockfish import Stockfish
 import chess.pgn
 import sys
+import asyncio
 
-stockfish = Stockfish(path="stockfish",depth=18)
+
+stockfish = Stockfish(path="stockfish",depth=18,parameters={"Threads":6})
 
 class PGN_analyzer:
     def __init__(self,path="games.pgn"):
@@ -35,13 +37,23 @@ class PGN_analyzer:
     
     def analyze_all_moves(self):
         moves = []
+        res = {}
         stockfish.set_position(moves)
-        for move in self.moves_list:
-            stockfish.make_moves_from_current_position(moves.append(move))
-            print(stockfish.get_best_move())
-            print(stockfish.get_board_visual())
-            print(stockfish.get_top_moves(5))
-            print(stockfish.get_wdl_stats())
+        for idx,move in enumerate(self.moves_list):
+            a ={"top_moves":stockfish.get_top_moves(3)}
+            moves.append(move)
+            stockfish.set_position(moves)
+            a["eval"] = stockfish.get_evaluation()
+            res[move] = a 
+            
+            if idx % 2 == 0:
+                print(f"Move {idx//2 +1}(White) Analyzed")
+            
+            if idx % 2 == 1:
+                print(f"Move {idx//2 +1}(Black) Analyzed")
+
+        self.res = res
+        return res
 
 
 class Move:
@@ -59,5 +71,6 @@ if __name__ == "__main__":
     # a.analyze_all_moves()
 
     a = PGN_analyzer("game.pgn")
-    print(a.moves_list)
+    a.analyze_all_moves()
+    print(a.res)
 
