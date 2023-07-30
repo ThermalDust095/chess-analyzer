@@ -23,11 +23,11 @@ def get_player_rating(username):
 		print(f'Best: {data["stats"][category]["best"]["rating"]}')
 		print(f'Best: {data["stats"][category]["record"]}')
 
-def get_most_recent_game(username):
+def get_most_recent_game(username,i):
 	data = get_player_game_archives(username).json
-	url = data['archives'][-1]
+	url = data['archives'][-i]
 	games = requests.get(url).json()
-	game = games['games'][-1]
+	game = games['games'][-i]
 	printer.pprint(game)
 
 

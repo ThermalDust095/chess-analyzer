@@ -3,14 +3,14 @@ import requests
 from datetime import date
 
 #fetches 3 pgn of the latest 3 games played
-def main(user, where=""):
+def fetchpgn(user, i,where=""):
     print("Downloading %s's last 3 games to %s:" % (user, where))
     archives = get('https://api.chess.com/pub/player/%s/games/archives' % user)['archives']
     latest_archives = archives[-1:]  # Retrieve the last archive
 
     for idx, archive in enumerate(latest_archives, 1):
         games = get(archive)['games']
-        latest_game = games[-1]  # Retrieve the last game (latest)
+        latest_game = games[-i]  # Retrieve the last game (latest)
 
         d = date.fromtimestamp(latest_game['end_time'])
         y = d.year
@@ -31,4 +31,4 @@ if __name__ == '__main__':
     # parser.add_argument('where', metavar='PATH', help='Where to create the PGN files',
     #                     default=".", nargs='?')
     # args = parser.parse_args()
-    main("ThermalDust095")
+    fetchpgn("ThermalDust095")
