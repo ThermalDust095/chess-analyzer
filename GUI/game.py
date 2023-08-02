@@ -3,6 +3,9 @@ import pygame
 from const import *
 from board import Board
 # Define the 'Game' class to represent the chess game.
+
+chess_notation = {'0':'a','1':'b','2':'c','3':'d','4':'e','5':'f','6':'g','7':'h'}
+
 class Game:
     def __init__(self,top,left) -> None:
         # Create a new 'Board' object to represent the chessboard.
@@ -20,10 +23,15 @@ class Game:
                     #dark green
                     color=(119,154,88)
                 # Calculate the rectangle position and size for the current square. 
-                rect=(col*sqsize+self.left,row*sqsize+self.top,sqsize,sqsize)
+                rect=pygame.Rect(col*sqsize+self.left,row*sqsize+self.top,sqsize,sqsize)
 
                 # Draw the square on the surface with the specified color.
                 pygame.draw.rect(surface,color,rect)
+                font = pygame.font.Font(None, 14)
+                text = f"{chess_notation[str(col)]}{8-row}"
+                text_surface = font.render(text, True, (107,101,101))
+                text_rect = text_surface.get_rect(bottomright=rect.bottomright)
+                surface.blit(text_surface, text_rect)
     
     def show_pieces(self,surface):
         for row in range(rows):
