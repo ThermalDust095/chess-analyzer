@@ -40,12 +40,13 @@ class PGN_analyzer:
         moves = []
         res = {}
         stockfish.set_position(moves)
+        x = 0
         for idx,move in enumerate(self.moves_list):
             a ={"top_moves":stockfish.get_top_moves(2)}
             moves.append(move)
             stockfish.set_position(moves)
             a["eval"] = stockfish.get_evaluation()
-            self.adv.append(a["eval"]["value"])
+            self.adv.append(x+ a["eval"]["value"])
             res[move] = a 
             
             if idx % 2 == 0:
