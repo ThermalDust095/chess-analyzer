@@ -46,7 +46,8 @@ class PGN_analyzer:
             moves.append(move)
             stockfish.set_position(moves)
             a["eval"] = stockfish.get_evaluation()
-            self.adv.append(x+ a["eval"]["value"])
+            x += a["eval"]["value"]
+            self.adv.append(x)
             res[move] = a 
             
             if idx % 2 == 0:
