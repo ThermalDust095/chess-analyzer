@@ -1,7 +1,7 @@
 # Import necessary classes and constants from other modules.
-from square import Square
-from const import *
-from piece import *
+from GUI.square import Square
+from GUI.const import *
+from GUI.piece import *
 # Define the 'Board' class to represent the chessboard and initialize it.
 class Board:
     def __init__(self,pos:list = None) -> None:
