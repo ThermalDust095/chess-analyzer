@@ -13,7 +13,7 @@ Use `pip install -r requirements.txt` to install all the modules.
 
 ## References Used 
 
-[Stockfish Official Website] helped us install and use the Stockfish ML model(https://disservin.github.io/stockfish-docs/pages/Home.html).
-[Stockfish Wrapper] in pypi helped us use the stockfish binary in a more efficient and systematic way (https://pypi.org/project/stockfish/)
-[Pygame Docs] made it easier for us to make the GUI (https://www.pygame.org/docs/).
-[Chess.com Unofficial API] helped us fetch data for all chess.com users (https://www.chess.com/news/view/published-data-api)
+[Stockfish Official Website](https://disservin.github.io/stockfish-docs/pages/Home.html) helped us install and use the Stockfish ML model.
+[Stockfish Wrapper](https://pypi.org/project/stockfish/) in pypi helped us use the stockfish binary in a more efficient and systematic way. 
+[Pygame Docs](https://www.pygame.org/docs/) made it easier for us to make the GUI.
+[Chess.com Unofficial API](https://www.chess.com/news/view/published-data-api) helped us fetch data for all chess.com users.
