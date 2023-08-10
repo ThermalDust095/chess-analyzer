@@ -73,13 +73,7 @@ class Move:
         self.top_moves = 0
 
 
-a = 'hi'
-
 if __name__ == "__main__":
-    # path = sys.argv[1]
-    # a = PGN_analyzer(path=path)
-    # a.analyze_all_moves()
-
     a = PGN_analyzer("game.pgn")
     a.analyze_all_moves()
     print(a.res)
